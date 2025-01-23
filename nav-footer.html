@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Header and Navigation</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script> <!-- Font Awesome -->
+    <link rel="icon" href="https://i.ibb.co/6nqLvXs/EDITBUDDY-3-removebg-preview.png" type="image/png"> <!-- Favicon -->
+</head>
+<body>
+    <div id="loader" class="loader-overlay">
+        <div id="lottie-loader"></div>
+    </div>
+    
+    <!-- Header Section -->
+    <header>
+        <div class="logo-container">
+            <h1 class="logo-text">EDITBUDDY</h1>
+            <p class="tagline">WEB DESIGN AND DEVELOPMENT</p>
+        </div>
+        <div class="hamburger">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+        <nav>
+            <ul class="nav-links">
+                <li class="close-menu"><span>&times;</span></li> <!-- Close Button -->
+                <li><a href="./index.html">Home</a></li>
+                <li><a href="./contact.html">Contact</a></li>
+                <li><a href="./services.html">Services</a></li>
+                <li><a href="./about.html">About</a></li>
+                <li><a href="./logout.html" class="logout-link">Logout</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bodymovin/5.9.6/lottie.min.js"></script>
+    <script>
+        const hamburger = document.querySelector('.hamburger');
+        const navLinks = document.querySelector('.nav-links');
+        const closeMenu = document.querySelector('.close-menu');
+    
+        hamburger.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+            hamburger.classList.toggle('toggle');
+        });
+    
+        closeMenu.addEventListener('click', () => {
+            navLinks.classList.remove('active');
+            hamburger.classList.remove('toggle');
+        });
+    
+        // Close menu when clicking outside of it
+        document.addEventListener('click', (e) => {
+            if (!hamburger.contains(e.target) && !navLinks.contains(e.target)) {
+                navLinks.classList.remove('active');
+                hamburger.classList.remove('toggle');
+            }
+        });
+        // Load Lottie animation
+const loaderAnimation = lottie.loadAnimation({
+    container: document.getElementById('lottie-loader'), // ID of the container
+    renderer: 'svg',
+    loop: true,
+    autoplay: true,
+    path: 'https://lottie.host/1d396990-7c00-445b-9594-18976b311d28/3DRkGR4ibh.json' // Replace with your Lottie JSON animation link
+});
+
+// Show loader for at least 2 seconds, then hide
+window.addEventListener('load', () => {
+    setTimeout(() => {
+        document.getElementById('loader').classList.add('hidden'); // Hide loader
+    }, 2000); // Adjust delay time if needed
+});
+
+    </script>
+</body>
+</html>

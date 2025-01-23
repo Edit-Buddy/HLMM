@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Legal Documents - EditBuddy</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script> <!-- Font Awesome -->
+    <link rel="icon" href="https://i.ibb.co/6nqLvXs/EDITBUDDY-3-removebg-preview.png" type="image/png"> <!-- Favicon -->
+</head>
+<style>
+/* Main Section */
+main {
+    padding: 4rem 16rem;
+    font-family: 'Inter', sans-serif;
+    background-color: #ffffff;
+    color: #1a1a1a;
+    margin-bottom: 4rem; /* Add bottom spacing */
+}
+
+main h1 {
+    font-size: 2.5rem;
+    text-align: center;
+    font-weight: 600;
+    color: #333333;
+    margin-bottom: 3rem;
+}
+
+/* Table Wrapper for Scrollable Table */
+.table-wrapper {
+    overflow-x: auto;
+    margin: 0 auto;
+    max-width: 100%;
+    -webkit-overflow-scrolling: touch; /* Smooth scrolling on mobile */
+}
+
+.legal-table {
+    width: 100%;
+    min-width: 700px; /* Ensures table requires scrolling on small screens */
+    border-collapse: collapse;
+    text-align: left;
+    font-size: 1rem;
+    color: #333333;
+}
+
+.legal-table th, .legal-table td {
+    padding: 1rem;
+    border-bottom: 1px solid #dddddd;
+}
+
+.legal-table th {
+    font-weight: 600;
+    background-color: #f9f9f9;
+    text-transform: uppercase;
+    font-size: 0.9rem;
+    color: #666666;
+}
+
+.legal-table tr:hover {
+    background-color: #f3f8fd;
+}
+
+.legal-table td {
+    vertical-align: top;
+}
+.legal-section {
+    margin-bottom: 2rem; /* Add space below the table section */
+}
+/* Document Link Button with Left-to-Right Highlight Animation */
+.document-link {
+    display: inline-block;
+    font-size: 0.9rem;
+    color: #000000;
+    border: #1a1a1a solid 2px;
+    text-decoration: none;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    position: relative; /* Needed for positioning the pseudo-element */
+    overflow: hidden; /* Ensures the highlight doesn't overflow the link boundaries */
+    transition: 0.3s ease-in-out; /* Smooth color transition */
+}
+
+.document-link:hover {
+    border: #ffa61c 2px solid;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    main h1 {
+        font-size: 2rem;
+    }
+}
+        /* FAQ Section Styling */
+        .faq {
+            margin-top: 30px;
+        }
+
+        .faq h3 {
+            margin-bottom: 20px;
+        }
+
+        .faq-item {
+            border-bottom: 1px solid #ddd;
+            padding: 15px 0;
+            cursor: pointer;
+        }
+
+        .faq-question {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            font-size: 1rem;
+            font-weight: bold;
+            color: #333;
+        }
+
+        .faq-question img {
+            width: 15px;
+            height: 15px;
+            margin-left: 10px;
+            transition: transform 0.3s ease;
+        }
+
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease, padding 0.3s ease;
+            padding: 0 10px;
+            font-size: 0.9rem;
+            color: #555;
+        }
+
+        .faq-answer.open {
+            max-height: 150px;
+            padding-top: 10px;
+        }
+        .faq {
+    margin-bottom: 4rem; /* Add space below the FAQ section */
+}
+</style>
+<body>
+    <!-- Loader -->
+    <div id="loader" class="loader-overlay">
+        <div id="lottie-loader"></div>
+    </div>
+    
+    <!-- Header Section -->
+    <header>
+        <div class="logo-container">
+            <h1 class="logo-text">EDITBUDDY</h1>
+            <p class="tagline">WEB DESIGN AND DEVELOPMENT</p>
+        </div>
+        <div class="hamburger">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+        <nav>
+            <ul class="nav-links">
+                <li class="close-menu"><span>&times;</span></li> <!-- Close Button -->
+                <li><a href="./index.html">Home</a></li>
+                <li><a href="./contact.html">Contact</a></li>
+                <li><a href="./services.html">Services</a></li>
+                <li><a href="./about.html">About</a></li>
+                <li><a href="./logout.html" class="logout-link">Logout</a></li>
+            </ul>
+        </nav>
+    </header>
+<!-- Main Section -->
+<main>
+    <h1>Legal Documents</h1>
+    <section class="legal-section">
+        <div class="table-wrapper">
+            <table class="legal-table">
+                <thead>
+                    <tr>
+                        <th>Document</th>
+                        <th>Description</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Terms and Conditions</td>
+                        <td>Understand your rights and responsibilities when using our services.</td>
+                        <td><a href="./terms.html" class="document-link">View Document</a></td>
+                    </tr>
+                    <tr>
+                        <td>Privacy Policy</td>
+                        <td>Learn how we protect and manage your personal information.</td>
+                        <td><a href="./privacy-policy.html" class="document-link">View Document</a></td>
+                    </tr>
+                    <tr>
+                        <td>Service Agreement</td>
+                        <td>Details on the scope, terms, and conditions of our services.</td>
+                        <td><a href="./terms.html" class="document-link">View Document</a></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
+    <!-- FAQ Section -->
+<section class="faq">
+    <h2>Frequently Asked Questions</h2>
+    <div class="faq-item">
+        <div class="faq-question">
+            Where can I find your Terms and Conditions?
+            <img src="https://i.ibb.co/S5DqhTK/dropdown-select.png" alt="dropdown">
+        </div>
+        <div class="faq-answer">
+            You can access our full Terms and Conditions <a href="./terms.html">here</a>. These outline the rules and regulations for using our services.
+        </div>
+    </div>
+    <div class="faq-item">
+        <div class="faq-question">
+            How do you handle my personal information?
+            <img src="https://i.ibb.co/S5DqhTK/dropdown-select.png" alt="dropdown">
+        </div>
+        <div class="faq-answer">
+            Your privacy is our priority. You can review our <a href="./privacy-policy.html">Privacy Policy</a> to understand how we collect, store, and use your data.
+        </div>
+    </div>
+    <div class="faq-item">
+        <div class="faq-question">
+            What happens if I need to cancel my project?
+            <img src="https://i.ibb.co/S5DqhTK/dropdown-select.png" alt="dropdown">
+        </div>
+        <div class="faq-answer">
+            If you need to cancel your project, please refer to our <a href="./cancellation-policy.html">Cancellation Policy</a>. It includes details about refunds and cancellation fees.
+        </div>
+    </div>
+    <div class="faq-item">
+        <div class="faq-question">
+            Can I request a refund after my project is completed?
+            <img src="https://i.ibb.co/S5DqhTK/dropdown-select.png" alt="dropdown">
+        </div>
+        <div class="faq-answer">
+            Refunds are only available under certain conditions outlined in our <a href="./refund-policy.html">Refund Policy</a>. Please contact us at <a href="mailto:billing@editbuddy.co.za">billing@editbuddy.co.za</a> for assistance.
+        </div>
+    </div>
+</section>
+
+</main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <p>&copy; 2024 EditBuddy. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bodymovin/5.9.6/lottie.min.js"></script>
+    <script>
+        const hamburger = document.querySelector('.hamburger');
+        const navLinks = document.querySelector('.nav-links');
+        const closeMenu = document.querySelector('.close-menu');
+    
+        hamburger.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+            hamburger.classList.toggle('toggle');
+        });
+    
+        closeMenu.addEventListener('click', () => {
+            navLinks.classList.remove('active');
+            hamburger.classList.remove('toggle');
+        });
+    
+        // Close menu when clicking outside of it
+        document.addEventListener('click', (e) => {
+            if (!hamburger.contains(e.target) && !navLinks.contains(e.target)) {
+                navLinks.classList.remove('active');
+                hamburger.classList.remove('toggle');
+            }
+        });
+    
+        // Load Lottie animation
+        const loaderAnimation = lottie.loadAnimation({
+            container: document.getElementById('lottie-loader'), // ID of the container
+            renderer: 'svg',
+            loop: true,
+            autoplay: true,
+            path: 'https://lottie.host/1d396990-7c00-445b-9594-18976b311d28/3DRkGR4ibh.json' // Replace with your Lottie JSON animation link
+        });
+
+        // Show loader for at least 2 seconds, then hide
+        window.addEventListener('load', () => {
+            setTimeout(() => {
+                document.getElementById('loader').classList.add('hidden'); // Hide loader
+            }, 2000); // Adjust delay time if needed
+        });
+        const faqItems = document.querySelectorAll('.faq-item');
+        faqItems.forEach(item => {
+            const question = item.querySelector('.faq-question');
+            const answer = item.querySelector('.faq-answer');
+            const icon = question.querySelector('img');
+            question.addEventListener('click', () => {
+                answer.classList.toggle('open');
+                icon.style.transform = answer.classList.contains('open') ? 'rotate(180deg)' : 'rotate(0deg)';
+            });
+        });
+    </script>
+</body>
+</html>

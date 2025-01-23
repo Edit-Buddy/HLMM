@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payment Instructions</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script> <!-- Font Awesome -->
+    <link rel="icon" href="https://i.ibb.co/6nqLvXs/EDITBUDDY-3-removebg-preview.png" type="image/png"> <!-- Favicon -->
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f9f9f9;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 20px auto;
+            background: #ffffff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        h2 {
+            font-size: 1.8rem;
+            color: #333;
+            margin-bottom: 20px;
+            font-weight: bold;
+        }
+
+        h3 {
+            font-size: 1.4rem;
+            color: #333;
+            margin-bottom: 10px;
+            font-weight: bold;
+        }
+
+        ol {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            counter-reset: step-counter;
+        }
+
+        ol li {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 15px;
+            position: relative;
+            padding-left: 30px;
+        }
+
+        ol li::before {
+            content: counter(step-counter);
+            counter-increment: step-counter;
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 20px;
+            height: 20px;
+            background: #ffa61c;
+            color: #fff;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 20px;
+            font-size: 0.9rem;
+            font-weight: bold;
+        }
+
+        ol li div {
+            padding-left: 10px;
+            border-left: 2px solid #ffa61c;
+            line-height: 1.5;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 10px;
+        }
+
+        table th, table td {
+            text-align: left;
+            padding: 8px;
+            border-bottom: 1px solid #ddd;
+            font-size: 0.9rem;
+            color: #555;
+        }
+
+        table th {
+            color: #333;
+            font-weight: bold;
+        }
+
+        a {
+            color: #007bff;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        .payment-button {
+            position: relative;
+            display: inline-block;
+            color: #000000;
+            border: black 2px solid;
+            padding: 10px 20px;
+            text-decoration: none;
+            font-size: 1rem;
+            font-weight: bold;
+            border-radius: 5px;
+            overflow: hidden;
+            transition: color 0.3s ease;
+            margin-top: 20px;
+        }
+
+        .payment-button::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: #ffa61c;
+            z-index: 1;
+            transition: none;
+            transform: skewX(-20deg);
+        }
+
+        .payment-button:hover::before {
+            left: 100%;
+            transition: all 0.5s ease-in-out;
+        }
+
+        .payment-button:hover {
+            color: #000000;
+        }
+
+        /* FAQ Section Styling */
+        .faq {
+            margin-top: 30px;
+        }
+
+        .faq h3 {
+            margin-bottom: 20px;
+        }
+
+        .faq-item {
+            border-bottom: 1px solid #ddd;
+            padding: 15px 0;
+            cursor: pointer;
+        }
+
+        .faq-question {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            font-size: 1rem;
+            font-weight: bold;
+            color: #333;
+        }
+
+        .faq-question img {
+            width: 15px;
+            height: 15px;
+            margin-left: 10px;
+            transition: transform 0.3s ease;
+        }
+
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease, padding 0.3s ease;
+            padding: 0 10px;
+            font-size: 0.9rem;
+            color: #555;
+        }
+
+        .faq-answer.open {
+            max-height: 150px;
+            padding-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div id="loader" class="loader-overlay">
+        <div id="lottie-loader"></div>
+    </div>
+    
+    <!-- Header Section -->
+    <header>
+        <div class="logo-container">
+            <h1 class="logo-text">EDITBUDDY</h1>
+            <p class="tagline">WEB DESIGN AND DEVELOPMENT</p>
+        </div>
+        <div class="hamburger">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+        <nav>
+            <ul class="nav-links">
+                <li class="close-menu"><span>&times;</span></li> <!-- Close Button -->
+                <li><a href="./index.html">Home</a></li>
+                <li><a href="./contact.html">Contact</a></li>
+                <li><a href="./services.html">Services</a></li>
+                <li><a href="./about.html">About</a></li>
+                <li><a href="./logout.html" class="logout-link">Logout</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Main Content Section -->
+    <main>
+        <div class="container">
+            <h2>Payment Instructions</h2>
+            <ol>
+                <li>
+                    <div>Log in to your online banking platform.</div>
+                </li>
+                <li>
+                    <div>Select the option to make an EFT payment.</div>
+                </li>
+                <li>
+                    <div>Enter the <strong>Bank Name</strong>, <strong>Account Number</strong>, and <strong>Branch Code</strong> listed below.</div>
+                </li>
+                <li>
+                    <div>Use your <strong>Invoice Number</strong> as the payment reference.</div>
+                </li>
+                <li>
+                    <div>Complete the payment.</div>
+                </li>
+            </ol>
+            <h3>Bank Details</h3>
+            <table>
+                <tr>
+                    <th>Account Name</th>
+                    <td>EditBuddy Web Services</td>
+                </tr>
+                <tr>
+                    <th>Bank</th>
+                    <td>First National Bank (FNB)</td>
+                </tr>
+                <tr>
+                    <th>Account Number</th>
+                    <td>62756980647 </td>
+                </tr>
+                <tr>
+                    <th>Branch Code</th>
+                    <td>250655</td>
+                </tr>
+                <tr>
+                    <th>Reference</th>
+                    <td>Your Invoice Number (e.g., INV-1234)</td>
+                </tr>
+            </table>
+            <p>Once your payment is received, your payment status will be updated within 24 hours. If you encounter any issues, please email us at <a href="mailto:billing@editbuddy.co.za">billing@editbuddy.co.za</a>.</p>
+
+            <a href="./invoices.html" class="payment-button">Back to Invoices</a>
+
+            <!-- FAQ Section -->
+            <section class="faq">
+                <h3>Frequently Asked Questions</h3>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        What should I do if my payment isn't reflected?
+                        <img src="https://i.ibb.co/S5DqhTK/dropdown-select.png" alt="dropdown">
+                    </div>
+                    <div class="faq-answer">
+                        If your payment isn't reflected within 24 hours, please contact us at <a href="mailto:billing@editbuddy.co.za">billing@editbuddy.co.za</a> with your payment details.
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        Can I use a different payment method?
+                        <img src="https://i.ibb.co/S5DqhTK/dropdown-select.png" alt="dropdown">
+                    </div>
+                    <div class="faq-answer">
+                        Currently, we only support EFT payments. If you'd like to inquire about alternative payment methods, please reach out to us at <a href="mailto:billing@editbuddy.co.za">billing@editbuddy.co.za</a>.
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <!-- JavaScript -->
+    <script>
+        const faqItems = document.querySelectorAll('.faq-item');
+        faqItems.forEach(item => {
+            const question = item.querySelector('.faq-question');
+            const answer = item.querySelector('.faq-answer');
+            const icon = question.querySelector('img');
+            question.addEventListener('click', () => {
+                answer.classList.toggle('open');
+                icon.style.transform = answer.classList.contains('open') ? 'rotate(180deg)' : 'rotate(0deg)';
+            });
+        });
+    </script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/bodymovin/5.9.6/lottie.min.js"></script>
+        <script>
+            const hamburger = document.querySelector('.hamburger');
+            const navLinks = document.querySelector('.nav-links');
+            const closeMenu = document.querySelector('.close-menu');
+        
+            hamburger.addEventListener('click', () => {
+                navLinks.classList.toggle('active');
+                hamburger.classList.toggle('toggle');
+            });
+        
+            closeMenu.addEventListener('click', () => {
+                navLinks.classList.remove('active');
+                hamburger.classList.remove('toggle');
+            });
+        
+            // Close menu when clicking outside of it
+            document.addEventListener('click', (e) => {
+                if (!hamburger.contains(e.target) && !navLinks.contains(e.target)) {
+                    navLinks.classList.remove('active');
+                    hamburger.classList.remove('toggle');
+                }
+            });
+            // Load Lottie animation
+    const loaderAnimation = lottie.loadAnimation({
+        container: document.getElementById('lottie-loader'), // ID of the container
+        renderer: 'svg',
+        loop: true,
+        autoplay: true,
+        path: 'https://lottie.host/1d396990-7c00-445b-9594-18976b311d28/3DRkGR4ibh.json' // Replace with your Lottie JSON animation link
+    });
+    
+    // Show loader for at least 2 seconds, then hide
+    window.addEventListener('load', () => {
+        setTimeout(() => {
+            document.getElementById('loader').classList.add('hidden'); // Hide loader
+        }, 2000); // Adjust delay time if needed
+    });
+    
+        </script>
+</body>
+</html>

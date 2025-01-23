@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Projects - EditBuddy</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" href="https://i.ibb.co/6nqLvXs/EDITBUDDY-3-removebg-preview.png" type="image/png"> <!-- Favicon -->
+    <style>
+        /* Page-specific styles */
+        .project-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 20px;
+            padding: 20px;
+        }
+        .project-item {
+            background: #fff;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            max-width: 400px; /* Smaller size for desktop */
+            margin: auto; /* Center items */
+        }
+        .project-item:hover {
+            transform: scale(1.05);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+        .project-cover {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+        .project-title {
+            padding: 10px;
+            font-size: 0.9rem;
+            font-weight: bold;
+            color: #333;
+        }
+        @media (max-width: 768px) {
+            .project-list {
+                grid-template-columns: 1fr; /* Single column on mobile */
+            }
+            .project-item {
+                max-width: 100%; /* Full width on mobile */
+            }
+            .project-title {
+                font-size: 0.9rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Loader -->
+    <div id="loader" class="loader-overlay">
+        <div id="lottie-loader"></div>
+    </div>
+
+    <!-- Header Section -->
+    <header>
+        <div class="logo-container">
+            <h1 class="logo-text">EDITBUDDY</h1>
+            <p class="tagline">WEB DESIGN AND DEVELOPMENT</p>
+        </div>
+        <div class="hamburger">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+        <nav>
+            <ul class="nav-links">
+                <li class="close-menu"><span>&times;</span></li>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li><a href="services.html">Services</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="logout.html" class="logout-link">Logout</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+        <section>
+            <h1 class="heading">Your Projects</h1>
+            <div class="project-list">
+                <div class="project-item">
+                    <a href="path-to-your-project1.pdf" target="_blank">
+                        <img src="https://i.ibb.co/TMhB7f0/EDUSA-2.png" alt="Mens Project Cover" class="project-cover">
+                    </a>
+                    <p class="project-title">HL METAL MERCHANTS</p>
+                </div>
+                <!-- Add more project items here -->
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="dashboard-footer">
+        <p>&copy; 2024 EditBuddy. All rights reserved.</p>
+    </footer>
+
+    <!-- JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bodymovin/5.9.6/lottie.min.js"></script>
+    <script>
+        // Hamburger menu and loader logic
+        const hamburger = document.querySelector('.hamburger');
+        const navLinks = document.querySelector('.nav-links');
+        const closeMenu = document.querySelector('.close-menu');
+
+        hamburger.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+            hamburger.classList.toggle('toggle');
+        });
+
+        closeMenu.addEventListener('click', () => {
+            navLinks.classList.remove('active');
+            hamburger.classList.remove('toggle');
+        });
+
+        document.addEventListener('click', (e) => {
+            if (!hamburger.contains(e.target) && !navLinks.contains(e.target)) {
+                navLinks.classList.remove('active');
+                hamburger.classList.remove('toggle');
+            }
+        });
+
+        const loaderAnimation = lottie.loadAnimation({
+            container: document.getElementById('lottie-loader'),
+            renderer: 'svg',
+            loop: true,
+            autoplay: true,
+            path: 'https://lottie.host/1d396990-7c00-445b-9594-18976b311d28/3DRkGR4ibh.json'
+        });
+
+        window.addEventListener('load', () => {
+            setTimeout(() => {
+                document.getElementById('loader').classList.add('hidden');
+            }, 2000);
+        });
+    </script>
+</body>
+</html>

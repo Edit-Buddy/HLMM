@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Messages - EditBuddy</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" href="https://i.ibb.co/6nqLvXs/EDITBUDDY-3-removebg-preview.png" type="image/png"> <!-- Favicon -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        /* Heading for Main Section */
+        .heading {
+            font-family: 'Glacial Indifference', sans-serif;
+            font-size: 2.5rem;
+            font-weight: bold;
+            text-align: center;
+            color: #333333;
+            margin-bottom: 20px;
+        }
+
+        /* Notifications Section */
+        #notifications, #messages {
+            padding: 20px;
+        }
+
+        .notification-item,
+        .message-item {
+            position: relative;
+            padding: 15px 10px;
+            border-bottom: 1px solid #e0e0e0;
+            cursor: pointer;
+            background-color: #ffffff;
+            transition: background-color 0.3s, transform 0.2s;
+        }
+
+        .notification-item:hover,
+        .message-item:hover {
+            background-color: #f7f8fa;
+            transform: scale(1.01);
+        }
+
+        .notification-icon,
+        .message-icon {
+            font-size: 1.5rem;
+            color: #007bff;
+            margin-right: 10px;
+        }
+
+        .notification-content,
+        .message-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .notification-content div:first-child,
+        .message-content div:first-child {
+            font-size: 1rem;
+            color: #333333;
+        }
+
+        .notification-timestamp,
+        .message-timestamp {
+            font-size: 0.8rem;
+            color: #888888;
+        }
+
+        /* Blue Line on the Left */
+        .notification-details,
+        .message-details {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s ease, padding 0.4s ease;
+            background-color: #ffffff;
+            margin-top: 10px;
+            padding: 0 10px;
+            border-left: 4px solid transparent;
+            position: relative;
+        }
+
+        .notification-item.expanded .notification-details,
+        .message-item.expanded .message-details {
+            max-height: 150px;
+            padding: 10px;
+            border-left: 4px solid #007bff; /* Blue line animates */
+        }
+
+        /* Animation for the Blue Line */
+        .notification-details::before,
+        .message-details::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 0;
+            height: 100%;
+            background-color: #007bff;
+            transition: width 0.4s ease;
+        }
+
+        .notification-item.expanded .notification-details::before,
+        .message-item.expanded .message-details::before {
+            width: 4px; /* Blue line fully appears */
+        }
+
+        @media (max-width: 768px) {
+            .heading {
+                font-size: 2rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .heading {
+                font-size: 1.8rem;
+            }
+
+            .notification-content div:first-child,
+            .message-content div:first-child {
+                font-size: 0.9rem;
+            }
+
+            .notification-timestamp,
+            .message-timestamp {
+                font-size: 0.7rem;
+            }
+        }
+        /* Footer */
+footer {
+    text-align: center; /* Centers the text horizontally */
+    padding: 10px; /* Adds spacing around the text */
+    background-color: #fff; /* Optional: background color */
+    color: #333; /* Text color */
+    font-size: 0.9rem; /* Adjust font size if needed */
+    border-top: 1px solid #e0e0e0; /* Optional: adds a subtle border on top */
+}
+
+    </style>
+</head>
+<body>
+    <!-- Loader -->
+    <div id="loader" class="loader-overlay">
+        <div id="lottie-loader"></div>
+    </div>
+    <!-- Header -->
+    <header>
+        <div class="logo-container">
+            <h1 class="logo-text">EDITBUDDY</h1>
+            <p class="tagline">WEB DESIGN AND DEVELOPMENT</p>
+        </div>
+        <div class="hamburger">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+        <nav>
+            <ul class="nav-links">
+                <li class="close-menu"><span>&times;</span></li>
+                <li><a href="./index.html">Home</a></li>
+                <li><a href="./contact.html">Contact</a></li>
+                <li><a href="./services.html">Services</a></li>
+                <li><a href="./about.html">About</a></li>
+                <li><a href="./logout.html" class="logout-link">Logout</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Main Section -->
+    <main>
+        <section id="messages">
+            <h1 class="heading">Your Messages</h1>
+            <div class="message-item">
+                <i class="fas fa-comment-dots message-icon"></i>
+                <div class="message-content">
+                    <div>Handre Laubscher</div>
+                    <div class="message-timestamp">10:45 AM</div>
+                </div>
+                <div class="message-details">
+                    Hi! Welcome to the EditBuddy family, we are delighted to have you!
+                </div>
+            </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2024 EditBuddy. All rights reserved.</p>
+    </footer>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bodymovin/5.9.6/lottie.min.js"></script>
+    <!-- Scripts -->
+    <script>
+        // Expandable Notifications and Messages
+        document.querySelectorAll('.notification-item, .message-item').forEach(item => {
+            item.addEventListener('click', () => {
+                item.classList.toggle('expanded');
+            });
+        });
+
+        // Hamburger menu behavior
+        const hamburger = document.querySelector('.hamburger');
+        const navLinks = document.querySelector('.nav-links');
+        const closeMenu = document.querySelector('.close-menu');
+
+        hamburger.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+            hamburger.classList.toggle('toggle');
+        });
+
+        closeMenu.addEventListener('click', () => {
+            navLinks.classList.remove('active');
+            hamburger.classList.remove('toggle');
+        });
+
+        // Close menu when clicking outside
+        document.addEventListener('click', (e) => {
+            if (!hamburger.contains(e.target) && !navLinks.contains(e.target)) {
+                navLinks.classList.remove('active');
+                hamburger.classList.remove('toggle');
+            }
+        });
+
+        // Loader
+        const loaderAnimation = lottie.loadAnimation({
+            container: document.getElementById('lottie-loader'),
+            renderer: 'svg',
+            loop: true,
+            autoplay: true,
+            path: 'https://lottie.host/1d396990-7c00-445b-9594-18976b311d28/3DRkGR4ibh.json'
+        });
+
+        window.addEventListener('load', () => {
+            setTimeout(() => {
+                document.getElementById('loader').classList.add('hidden');
+            }, 2000);
+        });
+    </script>
+</body>
+</html>
