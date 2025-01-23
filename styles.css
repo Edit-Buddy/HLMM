@@ -182,7 +182,7 @@ main {
 }
 
 .progress {
-    width: 50%; /* Adjust width to reflect progress */
+    width: 5%; /* Adjust width to reflect progress */
     height: 100%;
     background-color: #ffa61c;
     border-radius: 20px;
